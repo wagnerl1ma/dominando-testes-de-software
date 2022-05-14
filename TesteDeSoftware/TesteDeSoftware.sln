@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.2 - Features", "2.2 - Fea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Features", "01 - Testes de Unidade\Features\Features.csproj", "{4084A587-D9BC-4D8E-BADA-EE67135B9101}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Features.Test", "01 - Testes de Unidade\Features.Test\Features.Test.csproj", "{D1E9236C-4887-478D-991F-147A3BB36CDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Features.Tests", "01 - Testes de Unidade\Features.Test\Features.Tests.csproj", "{D1E9236C-4887-478D-991F-147A3BB36CDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
