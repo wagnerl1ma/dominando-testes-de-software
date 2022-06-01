@@ -65,6 +65,7 @@ namespace Features.Tests
             var clienteRepo = new Mock<IClienteRepository>();
             var mediatr = new Mock<IMediator>();
 
+            //Simula o ObterTodos() do IRepository retornando o ObterClientesVariados do Bogus
             clienteRepo.Setup(c => c.ObterTodos())
                 .Returns(_clienteTestsBogus.ObterClientesVariados());
 
