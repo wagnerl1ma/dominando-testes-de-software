@@ -55,6 +55,7 @@ namespace Features.Tests
             result.Should().BeFalse();
             cliente.ValidationResult.Errors.Should().HaveCountGreaterOrEqualTo(1, "deve possuir erros de validação");
 
+            // ITestOutputHelper _outputHelper - incluir textos customizados na saída do teste
             _outputHelper.WriteLine($"Foram encontrados {cliente.ValidationResult.Errors.Count} erros nesta validação");
         }
     }
