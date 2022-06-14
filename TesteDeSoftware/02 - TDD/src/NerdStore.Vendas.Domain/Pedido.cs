@@ -27,7 +27,7 @@ namespace NerdStore.Vendas.Domain
         public Voucher Voucher { get; private set; }
 
         private readonly List<PedidoItem> _pedidoItems;
-        public IReadOnlyCollection<PedidoItem> PedidoItems => _pedidoItems;
+        public IReadOnlyCollection<PedidoItem> PedidoItems => _pedidoItems; // somente visivel a lista publica PedidoItems que é somente leitura para não ser manipulada
 
         public ValidationResult AplicarVoucher(Voucher voucher)
         {
@@ -83,7 +83,8 @@ namespace NerdStore.Vendas.Domain
 
         private void ValidarPedidoItemInexistente(PedidoItem item)
         {
-            if (!PedidoItemExistente(item)) throw new DomainException("O item não pertence ao pedido");
+            if (!PedidoItemExistente(item)) 
+                throw new DomainException("O item não pertence ao pedido");
         }
 
         private void ValidarQuantidadeItemPermitida(PedidoItem item)
@@ -142,6 +143,7 @@ namespace NerdStore.Vendas.Domain
             PedidoStatus = PedidoStatus.Rascunho;
         }
 
+        //classe aninhada: criada uma classe dentro de outra classe
         public static class PedidoFactory
         {
             public static Pedido NovoPedidoRascunho(Guid clienteId)
