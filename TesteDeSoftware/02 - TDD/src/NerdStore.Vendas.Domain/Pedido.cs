@@ -32,7 +32,9 @@ namespace NerdStore.Vendas.Domain
         public ValidationResult AplicarVoucher(Voucher voucher)
         {
             var result = voucher.ValidarSeAplicavel();
-            if (!result.IsValid) return result;
+
+            if (!result.IsValid) 
+                return result;
 
             Voucher = voucher;
             VoucherUtilizado = true;
@@ -44,7 +46,8 @@ namespace NerdStore.Vendas.Domain
 
         public void CalcularValorTotalDesconto()
         {
-            if(!VoucherUtilizado) return;
+            if(!VoucherUtilizado) 
+                return;
 
             decimal desconto = 0;
             var valor = ValorTotal;
@@ -96,7 +99,8 @@ namespace NerdStore.Vendas.Domain
                 quantidadeItems += itemExistente.Quantidade;
             }
 
-            if (quantidadeItems > MAX_UNIDADES_ITEM) throw new DomainException($"Máximo de {MAX_UNIDADES_ITEM} unidades por produto.");
+            if (quantidadeItems > MAX_UNIDADES_ITEM) 
+                throw new DomainException($"Máximo de {MAX_UNIDADES_ITEM} unidades por produto.");
         }
 
         public void AdicionarItem(PedidoItem pedidoItem)
