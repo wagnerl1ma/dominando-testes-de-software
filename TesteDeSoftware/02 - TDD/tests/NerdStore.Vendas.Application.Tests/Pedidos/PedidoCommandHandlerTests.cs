@@ -20,6 +20,7 @@ namespace NerdStore.Vendas.Application.Tests.Pedidos
 
         public PedidoCommandHandlerTests()
         {
+            //AutoMocker cria uma instancia da classe escolhida e resolve a injeção de dependencia
             _mocker = new AutoMocker();
             _pedidoHandler = _mocker.CreateInstance<PedidoCommandHandler>();
 
