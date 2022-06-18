@@ -28,6 +28,8 @@ public class ClienteServiceAutoMockerTests
     {
         // Arrange
         var cliente = _clienteTestsBogus.GerarClienteValido();
+
+        //criando uma instancia de ClienteService com o AutoMocker
         var mocker = new AutoMocker();
         var clienteService = mocker.CreateInstance<ClienteService>();
 
@@ -39,6 +41,7 @@ public class ClienteServiceAutoMockerTests
         mocker.GetMock<IClienteRepository>().Verify(r => r.Adicionar(cliente), Times.Once);
         mocker.GetMock<IMediator>().Verify(r => r.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Once);
     }
+
     [Fact(DisplayName = "Adicionar Cliente com Falha")]
     [Trait("Categoria", "Cliente Service AutoMock Tests")]
     public void ClienteService_Adicionar_DeveFalharDevidoClienteInvalido()

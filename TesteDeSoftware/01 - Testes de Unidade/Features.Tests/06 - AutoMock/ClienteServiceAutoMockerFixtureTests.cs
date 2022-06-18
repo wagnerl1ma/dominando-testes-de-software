@@ -37,6 +37,7 @@ public class ClienteServiceAutoMockerFixtureTests
         _clienteTestsAutoMockerFixture.Mocker.GetMock<IClienteRepository>().Verify(r => r.Adicionar(cliente), Times.Once);
         _clienteTestsAutoMockerFixture.Mocker.GetMock<IMediator>().Verify(r => r.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Once);
     }
+
     [Fact(DisplayName = "Adicionar Cliente com Falha")]
     [Trait("Categoria", "Cliente Service AutoMockFixture Tests")]
     public void ClienteService_Adicionar_DeveFalharDevidoClienteInvalido()

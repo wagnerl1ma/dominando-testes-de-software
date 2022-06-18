@@ -8,6 +8,8 @@ namespace Features.Tests
     /// sendo implementada uma migração no projeto e alguns testes irão de fato quebrar
     /// mas como as correções ainda serão feitas, pode-se usar deste artifício
     /// </summary>
+
+    //Se utiliza o Skip como parametro quando é necessário pular esse teste para nao quebrar os outros testes
     public class TesteNaoPassandoMotivoEspecifico
     {
         [Fact(DisplayName = "Novo Cliente 2.0", Skip = "Nova versão 2.0 quebrando")]

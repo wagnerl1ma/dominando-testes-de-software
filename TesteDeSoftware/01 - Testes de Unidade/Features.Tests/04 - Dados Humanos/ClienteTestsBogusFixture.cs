@@ -33,7 +33,8 @@ public class ClienteTestsBogusFixture
     {
         var genero = new Faker().PickRandom<Name.Gender>();
 
-        //var email = new Faker().Internet.Email("eduardo","pires","gmail");
+        //Dados Fake com o Bogus
+        //var email = new Faker().Internet.Email("wagner", "lima", "gmail");
         //var clientefaker = new Faker<Cliente>();
         //clientefaker.RuleFor(c => c.Nome, (f, c) => f.Name.FirstName());
 
@@ -42,12 +43,12 @@ public class ClienteTestsBogusFixture
                 Guid.NewGuid(),
                 f.Name.FirstName(genero),
                 f.Name.LastName(genero),
-                f.Date.Past(80, DateTime.Now.AddYears(-18)), // Irá retornar data de nascimento de até 80 anos atrás mas todas maiores de 18 anos
+                f.Date.Past(80, DateTime.Now.AddYears(-18)),  // até 80 anos e nao pode ser menor que 18 anos
                 "",
                 ativo,
                 DateTime.Now))
             .RuleFor(c => c.Email, (f, c) =>
-                  f.Internet.Email(c.Nome.ToLower(), c.Sobrenome.ToLower()));
+                  f.Internet.Email(c.Nome.ToLower(), c.Sobrenome.ToLower()));   //gerando um email com o nome e sobrenome que foram preenchidos
 
         return clientes.Generate(quantidade);
     }

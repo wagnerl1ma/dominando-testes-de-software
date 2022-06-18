@@ -51,11 +51,12 @@ namespace Features.Tests
             //Assert.False(result);
             //Assert.NotEqual(0, cliente.ValidationResult.Errors.Count);
 
-            // Assert using FluentAssertions
+            // Assert 
             result.Should().BeFalse();
-            cliente.ValidationResult.Errors.Should().HaveCountGreaterOrEqualTo(1, "must have validation errorrs");
+            cliente.ValidationResult.Errors.Should().HaveCountGreaterOrEqualTo(1, "deve possuir erros de validação");
 
-            _outputHelper.WriteLine($"Were found {cliente.ValidationResult.Errors.Count} errors in this validation");
+            // ITestOutputHelper _outputHelper - incluir textos customizados na saída do teste
+            _outputHelper.WriteLine($"Foram encontrados {cliente.ValidationResult.Errors.Count} erros nesta validação");
         }
     }
 }

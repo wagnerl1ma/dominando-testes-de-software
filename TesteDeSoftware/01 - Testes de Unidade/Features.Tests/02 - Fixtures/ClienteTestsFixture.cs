@@ -4,6 +4,8 @@ using Xunit;
 
 namespace Features.Tests;
 
+//Collection Fixture é usado para sempre usar uma mesma instancia de um obj nos testes.
+
 [CollectionDefinition(nameof(ClienteCollection))]
 public class ClienteCollection : ICollectionFixture<ClienteTestsFixture>
 {
@@ -19,10 +21,10 @@ public class ClienteTestsFixture : IDisposable
     {
         var cliente = new Cliente(
             Guid.NewGuid(),
-            "Eduardo",
-            "Pires",
+            "Wagner",
+            "Lima",
             DateTime.Now.AddYears(-30),
-            "edu@edu.com",
+            "wagner@wagner.com",
             true,
             DateTime.Now);
 
@@ -36,7 +38,7 @@ public class ClienteTestsFixture : IDisposable
             "",
             "",
             DateTime.Now,
-            "edu2edu.com",
+            "wag2wagner.com",
             true,
             DateTime.Now);
 

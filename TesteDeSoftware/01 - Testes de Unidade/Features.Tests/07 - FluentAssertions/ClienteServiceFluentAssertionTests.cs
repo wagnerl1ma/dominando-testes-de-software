@@ -55,7 +55,7 @@ namespace Features.Tests
             //Assert.False(cliente.EhValido());
 
             // Assert using FluentAssertions
-            cliente.EhValido().Should().BeFalse("Have inconsistencies");
+            cliente.EhValido().Should().BeFalse("Possui inconsistências");
             cliente.ValidationResult.Errors.Should().HaveCountGreaterOrEqualTo(1);
 
             _clienteTestsAutoMockerFixture.Mocker.GetMock<IClienteRepository>().Verify(r => r.Adicionar(cliente), Times.Never);
@@ -81,14 +81,13 @@ namespace Features.Tests
             clientes.Should().HaveCountGreaterOrEqualTo(1).And.OnlyHaveUniqueItems();
             clientes.Should().NotContain(c => !c.Ativo);
 
-            _clienteTestsAutoMockerFixture.Mocker.GetMock<IClienteRepository>().Verify(r => r.ObterTodos(), Times.Once);
+            _clienteTestsAutoMockerFixture.Mocker.GetMock<IClienteRepository>().Verify(r => r.ObterTodos(), Times.Once); // --> precisa ser maior ou igual a {1} e não pode ser repitido
 
             // A validação abaixo é apenas um exemplo de uso do ExecutionTimeOf, mas, o recomendado
             // é utilizar esse tipo de validação em testes de integração e não em testes de unidade
             _clienteService.ExecutionTimeOf(c=>c.ObterTodosAtivos())
                 .Should()
-                .BeLessOrEqualTo(50.Milliseconds(),
-                    "runs thousands of times per second");
+                .BeLessOrEqualTo(50.Milliseconds(), "é executado milhares de vezes por segundo");
         }
     }
 }
