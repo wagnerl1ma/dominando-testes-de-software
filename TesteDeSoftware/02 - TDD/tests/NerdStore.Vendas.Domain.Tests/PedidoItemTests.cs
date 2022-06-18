@@ -1,5 +1,5 @@
-﻿using System;
-using NerdStore.Core.DomainObjects;
+﻿using NerdStore.Core.DomainObjects;
+using System;
 using Xunit;
 
 namespace NerdStore.Vendas.Domain.Tests

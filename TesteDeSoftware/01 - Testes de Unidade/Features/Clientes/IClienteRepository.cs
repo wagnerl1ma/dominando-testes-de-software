@@ -1,9 +1,8 @@
 ﻿using Features.Core;
 
-namespace Features.Clientes
+namespace Features.Clientes;
+
+public interface IClienteRepository : IRepository<Cliente>
 {
-    public interface IClienteRepository : IRepository<Cliente>
-    {
-        Cliente ObterPorEmail(string email);
-    }
+    Cliente ObterPorEmail(string email);
 }

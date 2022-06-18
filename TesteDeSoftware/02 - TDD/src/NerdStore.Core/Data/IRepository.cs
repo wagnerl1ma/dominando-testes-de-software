@@ -1,4 +1,3 @@
-﻿using System;
 using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Core.Data

@@ -1,20 +1,20 @@
-Ôªøusing System;
-using System.Linq;
 using NerdStore.Vendas.Application.Commands;
 using NerdStore.Vendas.Domain;
+using System;
+using System.Linq;
 using Xunit;
 
 namespace NerdStore.Vendas.Application.Tests.Pedidos
 {
     public class AdicionarItemPedidoCommandTests
     {
-        [Fact(DisplayName = "Adicionar Item Command V√°lido")]
+        [Fact(DisplayName = "Adicionar Item Command V·lido")]
         [Trait("Categoria", "Vendas - Pedido Commands")]
-        public void AdicionarItemPedidoCommand_CommandoEstaValido_DevePassarNaValidacao()
+        public void AdicionarItemPedidoCommand_CommandEstaValido_DevePassarNaValidacao()
         {
             // Arrange
             var pedidoCommand = new AdicionarItemPedidoCommand(Guid.NewGuid(),
-                Guid.NewGuid(), "Produto Teste", 2, 100);
+                Guid.NewGuid(), "Produto Test", 2, 100);
 
             // Act
             var result = pedidoCommand.EhValido();
@@ -23,7 +23,8 @@ namespace NerdStore.Vendas.Application.Tests.Pedidos
             Assert.True(result);
         }
 
-        [Fact(DisplayName = "Adicionar Item Command Inv√°lido")]
+
+        [Fact(DisplayName = "Adicionar Item Command Inv·lido")]
         [Trait("Categoria", "Vendas - Pedido Commands")]
         public void AdicionarItemPedidoCommand_CommandoEstaInvalido_NaoDevePassarNaValidacao()
         {

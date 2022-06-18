@@ -1,4 +1,3 @@
-﻿using System;
 using MediatR;
 using NerdStore.Core.Messages;
 

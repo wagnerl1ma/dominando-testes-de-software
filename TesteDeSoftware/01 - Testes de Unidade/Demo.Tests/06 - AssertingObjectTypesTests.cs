@@ -1,27 +1,26 @@
-﻿using Xunit;
+using Xunit;
 
-namespace Demo.Tests
+namespace Demo.Tests;
+
+public class AssertingObjectTypesTests
 {
-    public class AssertingObjectTypesTests
+    [Fact]
+    public void FuncionarioFactory_Criar_DeveRetornarTipoFuncionario()
     {
-        [Fact]
-        public void FuncionarioFactory_Criar_DeveRetornarTipoFuncionario()
-        {
-            // Arrange & Act
-            var funcionario = FuncionarioFactory.Criar("Eduardo", 10000);
+        // Arrange & Act
+        var funcionario = FuncionarioFactory.Criar("Eduardo", 10000);
 
-            // Assert
-            Assert.IsType<Funcionario>(funcionario);
-        }
+        // Assert
+        Assert.IsType<Funcionario>(funcionario);
+    }
 
-        [Fact]
-        public void FuncionarioFactory_Criar_DeveRetornarTipoDerivadoPessoa()
-        {
-            // Arrange & Act
-            var funcionario = FuncionarioFactory.Criar("Eduardo", 10000);
+    [Fact]
+    public void FuncionarioFactory_Criar_DeveRetornarTipoDerivadoPessoa()
+    {
+        // Arrange & Act
+        var funcionario = FuncionarioFactory.Criar("Eduardo", 10000);
 
-            // Assert
-            Assert.IsAssignableFrom<Pessoa>(funcionario); //verifica se a obj "funcionario" herda da classe Pessoa
-        }
+        // Assert
+        Assert.IsAssignableFrom<Pessoa>(funcionario); // verifica se funcionario herda de pessoa
     }
 }

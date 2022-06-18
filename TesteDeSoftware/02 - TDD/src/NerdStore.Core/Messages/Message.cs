@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace NerdStore.Core.Messages
 {
     public abstract class Message

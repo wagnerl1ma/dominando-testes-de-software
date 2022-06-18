@@ -1,5 +1,4 @@
 ﻿using FluentValidation.Results;
-using System;
 
 namespace Features.Core
 {
@@ -17,11 +16,8 @@ namespace Features.Core
         {
             var compareTo = obj as Entity;
 
-            if (ReferenceEquals(this, compareTo)) 
-                return true;
-
-            if (ReferenceEquals(null, compareTo)) 
-                return false;
+            if (ReferenceEquals(this, compareTo)) return true;
+            if (ReferenceEquals(null, compareTo)) return false;
 
             return Id.Equals(compareTo.Id);
         }

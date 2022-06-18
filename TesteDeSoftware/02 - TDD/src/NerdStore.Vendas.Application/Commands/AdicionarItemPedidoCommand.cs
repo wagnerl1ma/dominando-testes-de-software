@@ -1,5 +1,5 @@
-ï»¿using System;
 using FluentValidation;
+using FluentValidation.Results;
 using NerdStore.Core.Messages;
 using NerdStore.Vendas.Domain;
 
@@ -31,11 +31,11 @@ namespace NerdStore.Vendas.Application.Commands
 
     public class AdicionarItemPedidoValidation : AbstractValidator<AdicionarItemPedidoCommand>
     {
-        public static string IdClienteErroMsg => "Id do cliente invÃ¡lido";
-        public static string IdProdutoErroMsg => "Id do produto invÃ¡lido";
-        public static string NomeErroMsg => "O nome do produto nÃ£o foi informado";
-        public static string QtdMaxErroMsg => $"A quantidade mÃ¡xima de um item Ã© {Pedido.MAX_UNIDADES_ITEM}";
-        public static string QtdMinErroMsg => "A quantidade minÃ­ma de um item Ã© 1";
+        public static string IdClienteErroMsg => "Id do cliente inválido";
+        public static string IdProdutoErroMsg => "Id do produto inválido";
+        public static string NomeErroMsg => "O nome do produto não foi informado";
+        public static string QtdMaxErroMsg => $"A quantidade máxima de um item é {Pedido.MAX_UNIDADES_ITEM}";
+        public static string QtdMinErroMsg => "A quantidade miníma de um item é 1";
         public static string ValorErroMsg => "O valor do item precisa ser maior que 0";
 
         public AdicionarItemPedidoValidation()
@@ -63,4 +63,5 @@ namespace NerdStore.Vendas.Application.Commands
                 .WithMessage(ValorErroMsg);
         }
     }
+
 }
