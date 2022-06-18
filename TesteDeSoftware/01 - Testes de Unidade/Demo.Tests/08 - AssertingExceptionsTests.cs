@@ -21,7 +21,7 @@ public class AssertingExceptionsTests
     {
         // Arrange & Act & Assert
         var exception =
-            Assert.Throws<Exception>(() => FuncionarioFactory.Criar("Eduardo", 250));
+            Assert.Throws<Exception>(() => FuncionarioFactory.Criar("Wagner", 250));
 
         Assert.Equal("Salario inferior ao permitido", exception.Message);
     }

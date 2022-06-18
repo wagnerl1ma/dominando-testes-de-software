@@ -18,7 +18,7 @@ public class AssertNullBoolTests
     public void Funcionario_Apelido_NaoDeveTerApelido()
     {
         // Arrange & Act
-        var funcionario = new Funcionario("Eduardo", 1000);
+        var funcionario = new Funcionario("Wagner", 1000);
 
         // Assert
         Assert.Null(funcionario.Apelido);
