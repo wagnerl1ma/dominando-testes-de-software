@@ -24,7 +24,8 @@ namespace NerdStore.Vendas.Application.Commands
 
         public async Task<bool> Handle(AdicionarItemPedidoCommand message, CancellationToken cancellationToken)
         {
-            if (!ValidarComando(message)) return false;
+            if (!ValidarComando(message)) 
+                return false;
 
             var pedido = await _pedidoRepository.ObterPedidoRascunhoPorClienteId(message.ClienteId);
             var pedidoItem = new PedidoItem(message.ProdutoId, message.Nome, message.Quantidade, message.ValorUnitario);
@@ -59,7 +60,8 @@ namespace NerdStore.Vendas.Application.Commands
 
         private bool ValidarComando(Command message)
         {
-            if (message.EhValido()) return true;
+            if (message.EhValido()) 
+                return true;
 
             foreach (var error in message.ValidationResult.Errors)
             {
@@ -71,7 +73,8 @@ namespace NerdStore.Vendas.Application.Commands
 
         public async Task<bool> Handle(AtualizarItemPedidoCommand message, CancellationToken cancellationToken)
         {
-            if (!ValidarComando(message)) return false;
+            if (!ValidarComando(message)) 
+                return false;
 
             var pedido = await _pedidoRepository.ObterPedidoRascunhoPorClienteId(message.ClienteId);
 
@@ -100,7 +103,8 @@ namespace NerdStore.Vendas.Application.Commands
 
         public async Task<bool> Handle(RemoverItemPedidoCommand message, CancellationToken cancellationToken)
         {
-            if (!ValidarComando(message)) return false;
+            if (!ValidarComando(message)) 
+                return false;
 
             var pedido = await _pedidoRepository.ObterPedidoRascunhoPorClienteId(message.ClienteId);
 

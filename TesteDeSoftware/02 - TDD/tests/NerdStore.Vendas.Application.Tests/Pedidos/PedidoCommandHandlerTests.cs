@@ -20,6 +20,7 @@ namespace NerdStore.Vendas.Application.Tests.Pedidos
 
         public PedidoCommandHandlerTests()
         {
+            //AutoMocker cria uma instancia da classe escolhida e resolve a injeção de dependencia
             _mocker = new AutoMocker();
             _pedidoHandler = _mocker.CreateInstance<PedidoCommandHandler>();
 
@@ -46,7 +47,6 @@ namespace NerdStore.Vendas.Application.Tests.Pedidos
             Assert.True(result);
             _mocker.GetMock<IPedidoRepository>().Verify(r => r.Adicionar(It.IsAny<Pedido>()), Times.Once);
             _mocker.GetMock<IPedidoRepository>().Verify(r => r.UnitOfWork.Commit(), Times.Once);
-
             //mocker.GetMock<IMediator>().Verify(r => r.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Once);
         }
 

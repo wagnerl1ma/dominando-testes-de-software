@@ -20,7 +20,7 @@ namespace NerdStore.Vendas.Domain
         public Voucher Voucher { get; private set; }
 
         private readonly List<PedidoItem> _pedidoItems;
-        public IReadOnlyCollection<PedidoItem> PedidoItems => _pedidoItems;
+        public IReadOnlyCollection<PedidoItem> PedidoItems => _pedidoItems; // somente visivel a lista publica PedidoItems que é somente leitura para não ser manipulada
 
         protected Pedido()
         {
