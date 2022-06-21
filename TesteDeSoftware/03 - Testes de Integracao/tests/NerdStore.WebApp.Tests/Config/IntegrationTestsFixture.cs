@@ -53,8 +53,7 @@ namespace NerdStore.WebApp.Tests.Config
         }
         public string ObterAntiForgeryToken(string htmlBody)
         {
-            var requestVerificationTokenMatch =
-                Regex.Match(htmlBody, $@"\<input name=""{AntiForgeryFieldName}"" type=""hidden"" value=""([^""]+)"" \/\>");
+            var requestVerificationTokenMatch = Regex.Match(htmlBody, $@"\<input name=""{AntiForgeryFieldName}"" type=""hidden"" value=""([^""]+)"" \/\>");
 
             if (requestVerificationTokenMatch.Success)
             {
