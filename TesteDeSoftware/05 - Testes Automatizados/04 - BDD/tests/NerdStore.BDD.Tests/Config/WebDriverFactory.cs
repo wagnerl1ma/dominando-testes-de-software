@@ -6,7 +6,7 @@ namespace NerdStore.BDD.Tests.Config
 {
     public static class WebDriverFactory
     {
-        public static IWebDriver CreateWebDriver(Browser browser, string caminhoDriver, bool headless)
+        public static IWebDriver CreateWebDriver(Browser browser, string caminhoDriver, bool headless) //headless: navegar de forma invisivel, o browser vai estar aberto mas não é possível ver
         {
             IWebDriver webDriver = null;
 

@@ -9,9 +9,7 @@ namespace NerdStore.BDD.Tests.Config
 
         public ConfigurationHelper()
         {
-            _config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
+            _config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         }
 
         public string VitrineUrl => _config.GetSection("VitrineUrl").Value;

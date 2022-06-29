@@ -16,9 +16,9 @@ namespace NerdStore.BDD.Tests.Config
         public SeleniumHelper(Browser browser, ConfigurationHelper configuration, bool headless = true)
         {
             Configuration = configuration;
-            WebDriver = WebDriverFactory.CreateWebDriver(browser, Configuration.WebDrivers, headless);
+            WebDriver = WebDriverFactory.CreateWebDriver(browser, Configuration.WebDrivers, headless); //headless: navegar de forma invisivel, o browser vai estar aberto mas não é possível ver
             WebDriver.Manage().Window.Maximize();
-            Wait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(30));
+            Wait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(30)); // caso nao achar algum elemento na tela, aguarda 30 segundos.
         }
 
         public string ObterUrl()
@@ -33,11 +33,13 @@ namespace NerdStore.BDD.Tests.Config
 
         public bool ValidarConteudoUrl(string conteudo)
         {
+            //valida se contem um trecho da URL
             return Wait.Until(ExpectedConditions.UrlContains(conteudo));
         }
 
         public void ClicarLinkPorTexto(string linkText)
         {
+            //clica no link que contem o texto na página, preenchido na variavel "linkText"
             var link = Wait.Until(ExpectedConditions.ElementIsVisible(By.LinkText(linkText)));
             link.Click();
         }
@@ -66,12 +68,14 @@ namespace NerdStore.BDD.Tests.Config
 
         public void PreencherTextBoxPorId(string idCampo, string valorCampo)
         {
+            //digita o texto letra por letra no campo
             var campo = Wait.Until(ExpectedConditions.ElementIsVisible(By.Id(idCampo)));
             campo.SendKeys(valorCampo);
         }
 
         public void PreencherDropDownPorId(string idCampo, string valorCampo)
         {
+            //seleciona e preenche o dropdown
             var campo = Wait.Until(ExpectedConditions.ElementIsVisible(By.Id(idCampo)));
             var selectElement = new SelectElement(campo);
             selectElement.SelectByValue(valorCampo);
@@ -89,6 +93,7 @@ namespace NerdStore.BDD.Tests.Config
 
         public string ObterValorTextBoxPorId(string id)
         {
+            //pega o texbox por id e captura o valor dele
             return Wait.Until(ExpectedConditions.ElementIsVisible(By.Id(id)))
                 .GetAttribute("value");
         }
@@ -136,7 +141,7 @@ namespace NerdStore.BDD.Tests.Config
 
         public void Dispose()
         {
-            WebDriver.Quit();
+            WebDriver.Quit(); //fecha o browser
             WebDriver.Dispose();
         }
     }
