@@ -4,6 +4,7 @@
 ### Resumo sobre o que foi feito:
 - Teste de Unidade
 - TDD
+- Testes de Integração
 - BDD
 - Automatizar testes com Selenium
 - Teste de Carga
