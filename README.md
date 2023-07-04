@@ -14,7 +14,7 @@ Projeto criado com base no curso Dominando os Testes de Software oferecido pela 
 
 ```bash
 # clonar repositório
-git clone https://github.com/wagnerl1ma/Dominando-Testes-Software.git
+git clone https://github.com/wagnerl1ma/dominando-testes-de-software.git
 
 # Autor
 
